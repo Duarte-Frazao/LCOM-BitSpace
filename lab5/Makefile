@@ -1,0 +1,22 @@
+# Makefile for lab5
+
+COMPILER_TYPE= gnu
+
+CC=gcc
+
+PROG= lab5
+SRCS= lab5.c test5.c vbe.c video_gr.c kbd.c kbd_reusable.c sprite.c xpm.c video_test.c timer.c 
+
+CFLAGS= -Wall
+
+DPADD+= ${LIBDRIVER} ${LIBSYS}
+LDADD+= -llm -ldriver -lsys
+
+LDFLAGS+= -L .
+
+MAN=
+
+BINDIR?= /usr/sbin
+
+.include <bsd.prog.mk>
+.include <bsd.gcc.mk>
